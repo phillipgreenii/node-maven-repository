@@ -22,7 +22,7 @@
   <distributionManagement>
     <repository>
       <id>local-node-repository</id>
-      <url>http://localhost:8080</url>
+      <url>http://localhost:8080/repo</url>
     </repository>
   </distributionManagement>
   <build>

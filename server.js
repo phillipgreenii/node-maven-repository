@@ -16,10 +16,10 @@ app.use(connect.favicon('favicon.ico'))
   .use(connect.logger('dev'))
   .use(connect.limit('10mb'))
   .use(connect.compress())  
-  .use(fileupload.middleware({uploadDir:'./uploads'}))
-  .use(mavenRepository.middleware({repositoryPath:'./repo'}))
+  .use(fileupload.middleware({uploadDir:'./root/.uploads'}))
+  .use(mavenRepository.middleware({repositoryPath:'./root/repo'}))
   .use('/',app.router)
-  .use(connect.static('repo'))
+  .use(connect.static('./root'))
   .use(connect.errorHandler())
   ;
 
