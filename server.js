@@ -7,21 +7,36 @@ var connect  = require('connect');
 var express = require('express');
 var fileupload = require('./fileupload');
 var mavenRepository = require('./maven-repository');
+var viewer = require('./viewer');
 
 // Create "connect" server.
 var app = express.createServer();
 
+var root = __dirname + '/root';
+var uploadDir = root + '/.uploads';
+var repo = root ;//+ '/repo';
 
 app.use(connect.favicon('favicon.ico'))
   .use(connect.logger('dev'))
   .use(connect.limit('10mb'))
   .use(connect.compress())  
-  .use(fileupload.middleware({uploadDir:'./root/.uploads'}))
-  .use(mavenRepository.middleware({repositoryPath:'./root/repo'}))
+  .use(fileupload.middleware({uploadDir:uploadDir}))
+  .use(mavenRepository.middleware({repositoryPath:repo}))
   .use('/',app.router)
-  .use(connect.static('./root'))
+  .use(connect.static(root))
   .use(connect.errorHandler())
   ;
+
+app.get('/viewer/index.js', function(req,res,next){
+  viewer.buildStructure(root+'/repo', function(err,structure){
+    if(err) {
+      res.send(500);
+    } else {
+      res.json(structure);
+    }
+  });
+  
+});
 
 
 /*  =====================================================================  */
