@@ -14,7 +14,7 @@ var app = express.createServer();
 
 var root = __dirname + '/root';
 var uploadDir = root + '/.uploads';
-var repo = root ;//+ '/repo';
+var repo = root + '/repo';
 
 app.use(connect.favicon('favicon.ico'))
   .use(connect.logger('dev'))
@@ -23,12 +23,13 @@ app.use(connect.favicon('favicon.ico'))
   .use(fileupload.middleware({uploadDir:uploadDir}))
   .use(mavenRepository.middleware({repositoryPath:repo}))
   .use('/',app.router)
-  .use(connect.static(root))
+  .use('/repo',connect.directory(repo))
+  .use('/repo',connect.static(repo))
   .use(connect.errorHandler())
   ;
 
 app.get('/viewer/index.js', function(req,res,next){
-  viewer.buildStructure(root+'/repo', function(err,structure){
+  viewer.buildStructure(repo, function(err,structure){
     if(err) {
       res.send(500);
     } else {
