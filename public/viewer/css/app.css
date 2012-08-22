@@ -1,0 +1,70 @@
+.dropping {
+  background: orange;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+#previewPanel {
+  border: 1px solid black;
+  min-height: 10em;
+  height: 500px;
+}
+
+.log-error {
+  color: red;
+}
+
+.log-info {
+  color: green;
+}
+
+.interfaces {
+  list-style-type: none;
+}
+
+ul.modifiers {
+  margin: 0;
+}
+
+.modifiers {
+  display: inline;
+  list-style-type: none;
+}
+
+.modifiers li {
+  display: inline;
+}
+
+ul.parameters {
+  margin: 0;
+}
+
+ul.parameters {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.parameters li {
+  display: inline;
+}
+
+ul.parameters li:after {
+  content: ",";
+}
+ul.parameters li:last-child:after {
+  content: "";
+}
+
+.class-kind {
+  font-style: italic
+}
+
+.class-name {
+  font-weight: bold
+}
+
+.members {
+  list-style-type: none;
+}

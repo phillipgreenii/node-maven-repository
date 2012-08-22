@@ -25,6 +25,7 @@ app.use(connect.favicon('favicon.ico'))
   .use('/',app.router)
   .use('/repo',connect.directory(repo))
   .use('/repo',connect.static(repo))
+  .use('/viewer',connect.static('./public/viewer'))
   .use(connect.errorHandler())
   ;
 
