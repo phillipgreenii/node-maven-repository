@@ -24,8 +24,7 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : '',
           url : url,
-          checksumUrls : {
-          }
+          checksumUrls : []
         });
       });
 
@@ -38,8 +37,7 @@ describe('viewer', function() {
             extension : 'jar',
             classifier : '',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar',
-            checksumUrls : {
-            }
+            checksumUrls : []
           }]
         };
         var url = '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar.md5';
@@ -50,9 +48,10 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : '',
           url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar',
-          checksumUrls : {
-            md5 : url
-          }
+          checksumUrls : [{
+            name : 'md5',
+            url : url
+          }]
         });
       });
 
@@ -65,9 +64,10 @@ describe('viewer', function() {
             extension : 'jar',
             classifier : '',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar',
-            checksumUrls : {
-              md5 : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar.md5'
-            }
+            checksumUrls : [{
+              name : 'md5',
+              url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar.md5'
+            }]
           }]
         };
         var url = '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-sources.jar';
@@ -78,8 +78,7 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : 'sources',
           url : url,
-          checksumUrls : {
-          }
+          checksumUrls : []
         });
       });
 
@@ -92,15 +91,15 @@ describe('viewer', function() {
             extension : 'jar',
             classifier : '',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar',
-            checksumUrls : {
-              md5 : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar.md5'
-            }
+            checksumUrls : [{
+              name : 'md5',
+              url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0.jar.md5'
+            }]
           }, {
             extension : 'jar',
             classifier : 'sources',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-sources.jar',
-            checksumUrls : {
-            }
+            checksumUrls : []
           }]
         };
         var url = '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-sources.jar.md5';
@@ -112,9 +111,10 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : 'sources',
           url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-sources.jar',
-          checksumUrls : {
-            md5 : url
-          }
+          checksumUrls : [{
+            name : 'md5',
+            url : url
+          }]
         });
       });
 
@@ -140,8 +140,7 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : '',
           url : url,
-          checksumUrls : {
-          }
+          checksumUrls : []
         });
       });
 
@@ -157,8 +156,7 @@ describe('viewer', function() {
             extension : 'jar',
             classifier : '',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0-SNAPSHOT/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar',
-            checksumUrls : {
-            }
+            checksumUrls : []
           }]
         };
         var url = '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0-SNAPSHOT/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar.md5';
@@ -169,9 +167,10 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : '',
           url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0-SNAPSHOT/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar',
-          checksumUrls : {
-            md5 : url
-          }
+          checksumUrls : [{
+            name : 'md5',
+            url : url
+          }]
         });
       });
 
@@ -187,9 +186,10 @@ describe('viewer', function() {
             extension : 'jar',
             classifier : '',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0-SNAPSHOT/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar',
-            checksumUrls : {
-              md5 : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0-SNAPSHOT/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar.md5'
-            }
+            checksumUrls : [{
+              name : 'md5',
+              url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0-SNAPSHOT/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar.md5'
+            }]
           }]
         };
         var url = '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1-sources.jar';
@@ -200,8 +200,7 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : 'sources',
           url : url,
-          checksumUrls : {
-          }
+          checksumUrls : []
         });
       });
 
@@ -217,15 +216,15 @@ describe('viewer', function() {
             extension : 'jar',
             classifier : '',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar',
-            checksumUrls : {
-              md5 : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar.md5'
-            }
+            checksumUrls : [{
+              name : 'md5',
+              url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1.jar.md5'
+            }]
           }, {
             extension : 'jar',
             classifier : 'sources',
             url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1-sources.jar',
-            checksumUrls : {
-            }
+            checksumUrls : []
           }]
         };
         var url = '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1-sources.jar.md5';
@@ -236,9 +235,10 @@ describe('viewer', function() {
           extension : 'jar',
           classifier : 'sources',
           url : '/com/ii/green/phillip/nodeMavenRepo/noddeMavenRepo-test-project/2.0/noddeMavenRepo-test-project-2.0-20120821.120944-1-sources.jar',
-          checksumUrls : {
-            md5 : url
-          }
+          checksumUrls : [{
+            name : 'md5',
+            url : url
+          }]
         });
       });
 
@@ -257,8 +257,9 @@ describe('viewer', function() {
   describe('buildStructureFromFilesPromise', function() {
     it('build structure from files', function(done) {
       var rootPath = '';
+      var urlPrefix = '';
       var files = [];
-      viewer._internals.buildStructureFromFilesPromise(rootPath, files).then(function(structure) {
+      viewer._internals.buildStructureFromFilesPromise(rootPath, urlPrefix, files).then(function(structure) {
         console.log("structure", util.inspect(structure, false, null));
         expect(structure).toBeDefined();
         done();
@@ -268,7 +269,7 @@ describe('viewer', function() {
 
   describe('buildStructure', function() {
     it('build structure from repo', function(done) {
-      viewer.buildStructure('specs/mock-repo', function(err, structure) {
+      viewer.buildStructure('specs/mock-repo', '', function(err, structure) {
         expect(err).not.toBeDefined();
         expect(structure).toBeDefined();
         console.log("structure", util.inspect(structure, false, null));
