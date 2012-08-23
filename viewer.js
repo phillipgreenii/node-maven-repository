@@ -69,7 +69,7 @@ function asList(val) {
   }
 }
 
-function addArtifactTo(artifactInfo, url, snapshotId) {
+function addArtifactTo(artifactInfo, url) {
 
   var fileName = url.split('/').slice(-1)[0];
   var prefix;
@@ -101,8 +101,7 @@ function addArtifactTo(artifactInfo, url, snapshotId) {
       extension : extension,
       classifier : classifier,
       url : '',
-      checksumUrls : {
-      }
+      checksumUrls : []
     }
     artifactInfo.artifacts.push(artifact);
   } else {
@@ -112,11 +111,14 @@ function addArtifactTo(artifactInfo, url, snapshotId) {
   if (!checksumType) {
     artifact.url = url;
   } else {
-    artifact.checksumUrls[checksumType] = url;
+    artifact.checksumUrls.push({
+      name : checksumType,
+      url : url
+    });
   }
 }
 
-function buildStructureFromFilesPromise(rootPath, files) {
+function buildStructureFromFilesPromise(rootPath, urlPathPrefix, files) {
   //sort so that artifact level metadata files appear before version level metadata files and
   //original files appear before checksum
   files.sort(function(a, b) {
@@ -172,7 +174,7 @@ function buildStructureFromFilesPromise(rootPath, files) {
                 return startsWith(url, urlPrefix) && !contains(url, MAVEN_METADATA_FILENAME);
               });
               artifactVersionUrls.forEach(function(url) {
-                addArtifactTo(artifact[version], url);
+                addArtifactTo(artifact[version], urlPathPrefix + url);
               });
             } else {
               artifact[version].snapshot = true;
@@ -199,7 +201,7 @@ function buildStructureFromFilesPromise(rootPath, files) {
             return startsWith(url, urlPrefix) && !contains(url, MAVEN_METADATA_FILENAME) && contains(url, snapshotId);
           });
           artifactVersionUrls.forEach(function(url) {
-            addArtifactTo(artifact[version], url);
+            addArtifactTo(artifact[version], urlPathPrefix + url);
           });
         }
       }
@@ -228,10 +230,10 @@ function buildStructureFromFilesPromise(rootPath, files) {
 var _handleError = function(err) {
   console.error.apply(console, arguments);
 }
-var buildStructure = function(path, callback) {
+var buildStructure = function(path, urlPrefix, callback) {
   console.log('building structure from', path);
   crawlPathForFilesPromise(path).then(function(files) {
-    return buildStructureFromFilesPromise(path, files)
+    return buildStructureFromFilesPromise(path, urlPrefix, files)
   }).then(function(structure) {
     callback((
     void 0), structure);

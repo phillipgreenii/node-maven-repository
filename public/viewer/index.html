@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="/viewer/lib/jquery-ui/1.8.20.custom/jquery-ui-1.8.20.custom.css">
     <link rel="stylesheet" href="/viewer/css/app.css">
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
+
+    <script type="text/ng-template"  id="tree_item_renderer.html">
+      <span ng-hide="data.artifacts">{{data.name}}</span>
+      <a ng-show="data.artifacts" href="" name="{{data.name}}" ng-click="selectArtifacts(data.artifacts)">{{data.name}}</a>
+      <ul>
+      <li ng-repeat="data in data.children" ng-include="'tree_item_renderer.html'"></li>
+      </ul>
+    </script>
+
   </head>
   <body>
     <div id="container" class="offscreen" ng-controller="ViewerController">
@@ -14,10 +23,56 @@
         <h1>Maven Repository Viewer</h1>
       </header>
       <section id="tree">
-        {{tree}}
+
+        <ul>
+          <li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></li>
+        </ul>
       </section>
       <section>
-        {{selectedArtifact}}
+        <table ng-show="selectedArtifact">
+          <tbody>
+            <tr>
+            <tr>
+              <th>Group ID</th><td>{{selectedArtifact.groupId}}</td>
+            </tr>
+            <tr>
+              <th>Artifact ID</th><td>{{selectedArtifact.artifactId}}</td>
+            </tr>
+            <tr>
+              <th>Version</th><td>{{selectedArtifact.version}}</td>
+            </tr>
+            </tr>
+          </tbody>
+        </table>
+
+        <table ng-show="selectedArtifact">
+          <tbody>
+            <tr>
+              <th>Artifact</th><th>Checksums</th>
+            </tr>
+            <tr ng-repeat="artifact in selectedArtifact.artifacts">
+              <td><a ng-href="{{artifact.url}}" target="_blank">{{artifact.fileName}}</a></td>
+              <td>
+              <ul ng-show="artifact.checksumUrls">
+                <li ng-repeat="checksum in artifact.checksumUrls">
+                  <a ng-href="{{checksum.url}}" target="_blank">{{checksum.name}}</a>
+                </li>
+              </ul></td>
+            </tr>
+
+          </tbody>
+        </table>
+        <!--
+        <div ng-repeat="artifact in selectedArtifact">
+        {{artifact.extension}}
+        <br>
+        {{artifact.classifier}}
+        <br>
+        {{artifact.url}}
+        <br>
+        {{artifact.checksumUrls}}
+        <br>
+        </div> -->
       </section>
       <footer></footer>
     </div>
