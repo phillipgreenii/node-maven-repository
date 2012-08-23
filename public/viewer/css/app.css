@@ -1,70 +1,59 @@
-.dropping {
-  background: orange;
-  border-radius: 10px;
-  opacity: 0.8;
-}
 
-#previewPanel {
-  border: 1px solid black;
-  min-height: 10em;
-  height: 500px;
-}
-
-.log-error {
-  color: red;
-}
-
-.log-info {
-  color: green;
-}
-
-.interfaces {
-  list-style-type: none;
-}
-
-ul.modifiers {
+ul.checksum-list {
   margin: 0;
 }
 
-.modifiers {
-  display: inline;
-  list-style-type: none;
-}
-
-.modifiers li {
-  display: inline;
-}
-
-ul.parameters {
-  margin: 0;
-}
-
-ul.parameters {
+ul.checksum-list {
   display: inline;
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-ul.parameters li {
+ul.checksum-list li {
   display: inline;
 }
 
-ul.parameters li:after {
-  content: ",";
+ul.checksum-list li:after {
+  content: "|";
 }
-ul.parameters li:last-child:after {
+ul.checksum-list li:last-child:after {
   content: "";
 }
 
-.class-kind {
-  font-style: italic
+.artifactInfo {
+  
+}
+.artifactInfoLabel{
+  text-align: left;
+  width: 12em;
+}
+.artifactInfoValue{
+  
 }
 
-.class-name {
-  font-weight: bold
+.artifactDownloads{
+  width: 100%
+}
+.artifactDownloadUrl{
+  width: 100%
+}
+.artifactDownloadChecksums{
+  width: 15em
 }
 
-.members {
-  list-style-type: none;
+/* Grid */
+
+[class*='col-'] {
+  float: left;
+}
+
+.col-1-2 {
+  width: 50%
+}
+
+.grid:after {
+  content: "";
+  display: table;
+  clear: both;
 }

@@ -22,58 +22,51 @@
       <header>
         <h1>Maven Repository Viewer</h1>
       </header>
-      <section id="tree">
+      <div class="grid">
+        <section id="repository" class="col-1-2">
+          <h1>Repository</h1>
+          <ul>
+            <li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></li>
+          </ul>
+        </section>
+        <section id="artifact-view" class="col-1-2">
+          <h1>Artifact</h1>
 
-        <ul>
-          <li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></li>
-        </ul>
-      </section>
-      <section>
-        <table ng-show="selectedArtifact">
-          <tbody>
-            <tr>
-            <tr>
-              <th>Group ID</th><td>{{selectedArtifact.groupId}}</td>
-            </tr>
-            <tr>
-              <th>Artifact ID</th><td>{{selectedArtifact.artifactId}}</td>
-            </tr>
-            <tr>
-              <th>Version</th><td>{{selectedArtifact.version}}</td>
-            </tr>
-            </tr>
-          </tbody>
-        </table>
+          <span ng-hide="selectedArtifact">Select an Artifact from the Repository</span>
+          <table ng-show="selectedArtifact" class="artifactInfo">
+            <tbody>
+              <tr>
+              <tr>
+                <th class="artifactInfoLabel">Group ID</th><td class="artifactInfoValue">{{selectedArtifact.groupId}}</td>
+              </tr>
+              <tr>
+                <th class="artifactInfoLabel">Artifact ID</th><td class="artifactInfoValue">{{selectedArtifact.artifactId}}</td>
+              </tr>
+              <tr>
+                <th class="artifactInfoLabel">Version</th><td class="artifactInfoValue">{{selectedArtifact.version}}</td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
 
-        <table ng-show="selectedArtifact">
-          <tbody>
-            <tr>
-              <th>Artifact</th><th>Checksums</th>
-            </tr>
-            <tr ng-repeat="artifact in selectedArtifact.artifacts">
-              <td><a ng-href="{{artifact.url}}" target="_blank">{{artifact.fileName}}</a></td>
-              <td>
-              <ul ng-show="artifact.checksumUrls">
-                <li ng-repeat="checksum in artifact.checksumUrls">
-                  <a ng-href="{{checksum.url}}" target="_blank">{{checksum.name}}</a>
-                </li>
-              </ul></td>
-            </tr>
-
-          </tbody>
-        </table>
-        <!--
-        <div ng-repeat="artifact in selectedArtifact">
-        {{artifact.extension}}
-        <br>
-        {{artifact.classifier}}
-        <br>
-        {{artifact.url}}
-        <br>
-        {{artifact.checksumUrls}}
-        <br>
-        </div> -->
-      </section>
+          <table ng-show="selectedArtifact" class="artifactDownloads">
+            <tbody>
+              <tr>
+                <th>Artifact</th><th>Checksums</th>
+              </tr>
+              <tr ng-repeat="artifact in selectedArtifact.artifacts">
+                <td class="artifactDownloadUrl"><a ng-href="{{artifact.url}}" target="_blank">{{artifact.fileName}}</a></td>
+                <td class="artifactDownloadChecksums">
+                <ul ng-show="artifact.checksumUrls" class="checksum-list">
+                  <li ng-repeat="checksum in artifact.checksumUrls">
+                    <a ng-href="{{checksum.url}}" target="_blank">{{checksum.name}}</a>
+                  </li>
+                </ul></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
       <footer></footer>
     </div>
 
