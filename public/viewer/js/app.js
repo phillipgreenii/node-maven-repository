@@ -2,4 +2,4 @@
 
 /* App Module */
 
-angular.module('Viewer', ['Viewer-services', 'Viewer-controllers']);
+angular.module('Viewer', ['Viewer-services', 'Viewer-controllers','Viewer.directives']);

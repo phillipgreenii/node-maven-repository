@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <title>Bytecode Playground</title>
     <link rel="stylesheet" href="/viewer/lib/jquery-ui/1.8.20.custom/jquery-ui-1.8.20.custom.css">
+    <link rel="stylesheet" href="/viewer/lib/jqTree/0.12/jqtree.css">
     <link rel="stylesheet" href="/viewer/css/app.css">
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
 
@@ -25,9 +26,8 @@
       <div class="grid">
         <section id="repository" class="col-1-2">
           <h1>Repository</h1>
-          <ul>
-            <li ng-repeat="data in tree" ng-include="'tree_item_renderer.html'"></li>
-          </ul>
+          <div id="tree-model" viewer-tree="tree" viewer-tree-on-select="selectArtifacts">
+
         </section>
         <section id="artifact-view" class="col-1-2">
           <h1>Artifact</h1>
@@ -71,9 +71,11 @@
     </div>
 
     <script src="/viewer/lib/jquery/1.7.2/jquery-1.7.2.min.js" defer></script>
-    <script src="/viewer/lib/jquery-ui/1.8.20.custom/jquery-ui-1.8.20.custom.min.js" defer></script>
+    <script src="/viewer/lib/jqTree/0.12/tree.jquery.js" defer></script>
     <script src="/viewer/lib/angular/1.0.1/angular-1.0.1.js" defer></script>
     <script src="/viewer/lib/angular/1.0.1/angular-resource-1.0.1.js" defer></script>
+
+    <script src="/viewer/js/directives.js" defer></script>
     <script src="/viewer/js/services.js" defer></script>
     <script src="/viewer/js/controllers.js" defer></script>
     <script src="/viewer/js/app.js" defer></script>

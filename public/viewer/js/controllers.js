@@ -47,12 +47,12 @@ function($scope, repositoryIndexAccessor) {
         var values = map[name];
         if (values.hasOwnProperty('artifactId')) {
           l.push({
-            name : name,
+            label : name,
             artifacts : values
           })
         } else {
           l.push({
-            name : name,
+            label : name,
             children : buildTreeFromMap(values)
           });
         }
@@ -67,8 +67,7 @@ function($scope, repositoryIndexAccessor) {
 
   $scope.tree = null;
   $scope.selectedArtifact = null;
-  //add method to convert index tree
-  //add method to 'replace' one tree with the other, this should happen like a merge, so that any front end code bound to the model will update with out being confused (ie selected artifact should stay the same, but update)
+  
   $scope.refresh = function() {
     repositoryIndexAccessor.retrieveIndex(function(repoIndex) {
       console.log('repoIndex', repoIndex);
